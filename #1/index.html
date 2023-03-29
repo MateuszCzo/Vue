@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="url">website</a>
+        <div>{{ filteredBooks }}</div>
+
+        <div v-if="showBook">
+            <ul>
+                <li v-for="book in books" :class="{ fav: book.isFav }" @click="toggleFav(book)">
+                    {{ book.title }} - {{ book.author }}
+                </li>
+            </ul>
+        </div>
+        <button @click="toggleVisibilityBooks">toggle</button>
+
+        <div v-show="showBook">asd</div>
+
+        <br>
+
+        <div class="box" @mouseover="handleEvent($event, 5)">mouse enter</div>
+        <div class="box" @mouseleave="handleEvent">mouse leave</div>
+        <div class="box" @dblclick="handleEvent">dobule mouse click</div>
+        <div class="box" @mousemove="handleMouseMove">position = {{ x }} , {{ y }}</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
